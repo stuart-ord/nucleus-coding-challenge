@@ -2,6 +2,7 @@ package bitcoin;
 
 // Imported packages
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -42,14 +43,28 @@ public class PortfolioPerformance {
         // Declaring variables
     	LocalDate startDate = LocalDate.of(2021, Month.SEPTEMBER, 1);
     	LocalDate endDate = LocalDate.of(2021, Month.SEPTEMBER, 7);
-    	BigDecimal portfolioValue = new BigDecimal("0");  
+    	BigDecimal noOfBitcoin = new BigDecimal("0");
     	BigDecimal currentPrice = new BigDecimal("0");
+    	BigDecimal portfolioValue = new BigDecimal("0");  
     	List<DailyPortfolioValue> dailyPortfolioValues = new ArrayList<DailyPortfolioValue>();
     	
         // For loop for the date range
     	// endDate plusDays(1) to iterate including endDate
     	for (LocalDate d = startDate; d.isBefore(endDate.plusDays(1)); d = d.plusDays(1)) {
+    		// Iterate through list of transactions
+    		// Identifying transactions for  date and adding to noOfBitcoin
+    		// Total noOfBitcoin for the date
     		
+    		// Iterate through list of prices 
+    		// Get price for relevant date needed for portfolioValue
+    	
+        	// Calculate portfolio value (no of units * fund price) 
+    		// Assume 3 decimal places as max used
+    		portfolioValue = noOfBitcoin.multiply(currentPrice);
+    		portfolioValue.setScale(3, RoundingMode.HALF_UP);
+    		
+    		// Add date and portfolio value
+
     	}
     	
         // Output list of daily portfolio values    	
