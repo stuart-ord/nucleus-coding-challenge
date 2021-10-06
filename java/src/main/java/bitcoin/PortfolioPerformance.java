@@ -56,9 +56,10 @@ public class PortfolioPerformance {
     		// Total noOfBitcoin for the date
     		for (int t = 1; t <= TRANSACTIONS.size(); t++) {
     			// If transaction date matches date d execute
-    			if () {
+    			if (TRANSACTIONS.get(t).effectiveDate().toString() == d.toString()) {
     				// Add all transactions to noOfBitcoin
-    				
+    				BigDecimal transaction = TRANSACTIONS.get(t).numberOfBitcoins();
+    				noOfBitcoin = noOfBitcoin.add(transaction);
     			}
     			else {
     				// Return only transaction
@@ -70,9 +71,9 @@ public class PortfolioPerformance {
     		// Get price for relevant date needed for portfolioValue
     		for (int c = 1; c <= PRICES.size(); c++) {
     			// If price date matches date d execute
-    			if () {
+    			if (PRICES.get(c).effectiveDate().toString() == d.toString()) {
     				// Set currentPrice to price to relevant price
-    				
+    				currentPrice = PRICES.get(c).price();
     			}
     			else {
     				// Return previous price
