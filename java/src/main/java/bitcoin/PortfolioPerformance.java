@@ -57,10 +57,12 @@ public class PortfolioPerformance {
     		for (int t = 1; t <= TRANSACTIONS.size(); t++) {
     			// If transaction date matches date d execute
     			if () {
+    				// Add all transactions to noOfBitcoin
     				
     			}
     			else {
-    				
+    				// Return only transaction
+    				break;
     			}
     		}
     		
@@ -69,10 +71,12 @@ public class PortfolioPerformance {
     		for (int c = 1; c <= PRICES.size(); c++) {
     			// If price date matches date d execute
     			if () {
+    				// Set currentPrice to price to relevant price
     				
     			}
     			else {
-    				
+    				// Return previous price
+    				break;
     			}
     		}
     		
