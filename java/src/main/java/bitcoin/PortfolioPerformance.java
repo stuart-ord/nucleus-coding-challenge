@@ -64,7 +64,7 @@ public class PortfolioPerformance {
     		portfolioValue.setScale(3, RoundingMode.HALF_UP);
     		
     		// Add date and portfolio value
-
+    		dailyPortfolioValues.add(new DailyPortfolioValue(d, portfolioValue));
     	}
     	
         // Output list of daily portfolio values    	
