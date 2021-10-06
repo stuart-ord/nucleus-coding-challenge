@@ -9,6 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PortfolioPerformance {
+	// Main function for testing purposes
+	// Used to execute code
+	@SuppressWarnings("static-access")
+	public static void main(String[] args) {
+		// Declare PortfolioPerformance
+    	// Console log for testing desired output
+		PortfolioPerformance p = new PortfolioPerformance();
+    	System.out.print(p.getDailyPortfolioValues());
+	}
+	
 	// Static list of prices
     private static final List<Price> PRICES = List.of(
             new Price(LocalDateTime.of(2021, Month.SEPTEMBER, 1, 5, 0, 0), new BigDecimal("35464.53")),
@@ -37,15 +47,12 @@ public class PortfolioPerformance {
     	List<DailyPortfolioValue> dailyPortfolioValues = new ArrayList<DailyPortfolioValue>();
     	
         // For loop for the date range
-    	// endDate plus 1 to iterate endDate inclusive
+    	// endDate plusDays(1) to iterate including endDate
     	for (LocalDate d = startDate; d.isBefore(endDate.plusDays(1)); d = d.plusDays(1)) {
     		
     	}
     	
-    	// Console log for testing desired output
-    	System.out.print(dailyPortfolioValues);
-    	
         // Output list of daily portfolio values    	
-    	return dailyPortfolioValues;
+    	return dailyPortfolioValues;   	
     }
 }
