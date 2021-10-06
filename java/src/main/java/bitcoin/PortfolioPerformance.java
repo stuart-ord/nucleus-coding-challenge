@@ -54,10 +54,28 @@ public class PortfolioPerformance {
     		// Iterate through list of transactions
     		// Identifying transactions for  date and adding to noOfBitcoin
     		// Total noOfBitcoin for the date
+    		for (int t = 1; t <= TRANSACTIONS.size(); t++) {
+    			// If transaction date matches date d execute
+    			if () {
+    				
+    			}
+    			else {
+    				
+    			}
+    		}
     		
     		// Iterate through list of prices 
     		// Get price for relevant date needed for portfolioValue
-    	
+    		for (int c = 1; c <= PRICES.size(); c++) {
+    			// If price date matches date d execute
+    			if () {
+    				
+    			}
+    			else {
+    				
+    			}
+    		}
+    		
         	// Calculate portfolio value (no of units * fund price) 
     		// Assume 3 decimal places as max used
     		portfolioValue = noOfBitcoin.multiply(currentPrice);
