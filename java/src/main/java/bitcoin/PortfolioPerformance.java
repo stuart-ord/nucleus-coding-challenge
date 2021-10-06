@@ -22,8 +22,17 @@ public class PortfolioPerformance {
             new Transaction(LocalDateTime.of(2021, Month.SEPTEMBER, 5, 9, 0, 0), new BigDecimal("-0.01")),
             new Transaction(LocalDateTime.of(2021, Month.SEPTEMBER, 7, 9, 0, 0), new BigDecimal("0.1")));
 
-    // Complete this method to return a list of daily portfolio values with one record for each day from the 01-09-2021-07-09-2021 in ascending date order
+    // Return a list of daily portfolio values with one record for each day 
+    // From the 01-09-2021 to the 07-09-2021
     public static List<DailyPortfolioValue> getDailyPortfolioValues() {
-        return null;
+        // Declaring variables
+
+
+        // For loop for the date range
+
+
+        // Output list of daily portfolio values
+        
+
     }
 }
