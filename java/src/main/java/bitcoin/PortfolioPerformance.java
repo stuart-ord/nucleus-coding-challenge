@@ -2,7 +2,6 @@ package bitcoin;
 
 // Imported packages
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -14,9 +13,9 @@ public class PortfolioPerformance {
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		// Declare PortfolioPerformance
-    	// Console log for testing desired output
 		PortfolioPerformance p = new PortfolioPerformance();
-    	System.out.print(p.getDailyPortfolioValues());
+    	// Console log for testing desired output
+    	p.getDailyPortfolioValues();
 	}
 	
 	// Static list of prices
@@ -77,8 +76,11 @@ public class PortfolioPerformance {
     		}
     		
         	// Calculate portfolio value (no of units * fund price) 
-    		// Assume 3 decimal places as max used
     		portfolioValue = noOfBitcoin.multiply(currentPrice);
+    		
+    		// Formatting string output
+    		System.out.println("Date: " + d.toLocalDate().toString() + ", Portfolio Value: " 
+    				+ portfolioValue.toString());
     		
     		// Add date and portfolio value
     		dailyPortfolioValues.add(new DailyPortfolioValue(d.toLocalDate(), portfolioValue));
