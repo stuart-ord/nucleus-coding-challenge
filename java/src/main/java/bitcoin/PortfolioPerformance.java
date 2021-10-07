@@ -3,7 +3,6 @@ package bitcoin;
 // Imported packages
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class PortfolioPerformance {
     // From the 01-09-2021 to the 07-09-2021
     public static List<DailyPortfolioValue> getDailyPortfolioValues() {
         // Declaring variables
-    	LocalDate startDate = LocalDate.of(2021, Month.SEPTEMBER, 1);
-    	LocalDate endDate = LocalDate.of(2021, Month.SEPTEMBER, 7);
+    	LocalDateTime startDate = LocalDateTime.of(2021, Month.SEPTEMBER, 1, 0, 0, 0);
+    	LocalDateTime endDate = LocalDateTime.of(2021, Month.SEPTEMBER, 7, 0, 0, 0);
     	BigDecimal noOfBitcoin = new BigDecimal("0");
     	BigDecimal currentPrice = new BigDecimal("0");
     	BigDecimal portfolioValue = new BigDecimal("0");  
@@ -50,46 +49,39 @@ public class PortfolioPerformance {
     	
         // For loop for the date range
     	// endDate plusDays(1) to iterate including endDate
-    	for (LocalDate d = startDate; d.isBefore(endDate.plusDays(1)); d = d.plusDays(1)) {
+    	for (LocalDateTime d = startDate; d.isBefore(endDate.plusDays(1)); d = d.plusDays(1)) {
     		// Iterate through list of transactions
     		// Identifying transactions for  date and adding to noOfBitcoin
     		// Total noOfBitcoin for the date
-    		for (int t = 1; t <= TRANSACTIONS.size(); t++) {
+    		for (int t = 0; t < TRANSACTIONS.size(); t++) {
     			// If transaction date matches date d execute
-    			// Ensure only dd-mm-yy checked
-    			if (TRANSACTIONS.get(t).effectiveDate().toString() == d.toString()) {
+    			// Ensure only DD-MM-YY checked
+    			if (TRANSACTIONS.get(t).effectiveDate().getDayOfMonth() == 
+    					d.getDayOfMonth()) {
     				// Add all transactions to noOfBitcoin
     				BigDecimal transaction = TRANSACTIONS.get(t).numberOfBitcoins();
     				noOfBitcoin = noOfBitcoin.add(transaction);
-    			}
-    			else {
-    				// Return only transaction
-    				
     			}
     		}
     		
     		// Iterate through list of prices 
     		// Get final price for relevant date needed for portfolioValue
-    		for (int c = 1; c <= PRICES.size(); c++) {
+    		for (int c = 0; c < PRICES.size(); c++) {
     			// If price date matches date d execute
-    			// Ensure all prices with matching dd-mm-yy checked
-    			if (PRICES.get(c).effectiveDate().toString() == d.toString()) {
+    			// Ensure all prices with matching DD-MM-YY checked
+    			if (PRICES.get(c).effectiveDate().getDayOfMonth() == 
+    					d.getDayOfMonth()) {
     				// Set currentPrice to price to relevant price
     				currentPrice = PRICES.get(c).price();
-    			}
-    			else {
-    				// Return previous price
-    				
     			}
     		}
     		
         	// Calculate portfolio value (no of units * fund price) 
     		// Assume 3 decimal places as max used
     		portfolioValue = noOfBitcoin.multiply(currentPrice);
-    		portfolioValue.setScale(3, RoundingMode.HALF_UP);
     		
     		// Add date and portfolio value
-    		dailyPortfolioValues.add(new DailyPortfolioValue(d, portfolioValue));
+    		dailyPortfolioValues.add(new DailyPortfolioValue(d.toLocalDate(), portfolioValue));
     	}
     	
         // Output list of daily portfolio values    	
